@@ -6,20 +6,19 @@ phases:
       nodejs: 18
     commands:
       - echo "Instalando Serverless Framework"
-      - npm install -g serverless
-      - echo "Instalando dependencias del proyecto"
-      - npm install
+      - npm install -g serverless@3.38.0
+
 
   build:
     commands:
       - echo "Empaquetando e implementando con Serverless"
       - serverless deploy --region sa-east-1
 
-  post_build:
-    commands:
-      - echo "Despliegue completado"
-      - echo "Obteniendo la URL del endpoint si aplica"
-      - serverless info --region sa-east-1
+  # post_build:
+  #   commands:
+  #     - echo "Despliegue completado"
+  #     - echo "Obteniendo la URL del endpoint si aplica"
+  #     - serverless info --region sa-east-1
 
 artifacts:
   files:
