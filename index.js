@@ -1,9 +1,10 @@
 module.exports.handler = async (event) => {
+  // conecta base de datos
   return {
     statusCode: 200,
     body: JSON.stringify(
       {
-        message: "Go to Serverless v3.0! Your function executed successfully!",
+        message: "Desde github",
         input: event,
       },
       null,
