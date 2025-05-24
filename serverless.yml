@@ -1,5 +1,5 @@
 service: aws-node-http-api-project
-frameworkVersion: '3'
+frameworkVersion: '3.38.0'
 
 provider:
   name: aws
