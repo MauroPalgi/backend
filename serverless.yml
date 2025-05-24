@@ -6,6 +6,8 @@ provider:
   runtime: nodejs18.x
   region: sa-east-1
   stage: dev
+  deploymentBucket:
+    name: my-serverless-deploy-bucket-sa-east-1 # <== personalízalo
 
 functions:
   api:
