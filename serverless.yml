@@ -3,16 +3,28 @@ frameworkVersion: '3.38.0'
 
 provider:
   name: aws
-  runtime: nodejs18.x
+  runtime: nodejs20.x
   region: sa-east-1
   stage: dev
-  deploymentBucket:
-    name: my-serverless-deploy-bucket-sa-east-1 # <== personalízalo
-
+ 
 functions:
-  api:
+  helloWorld:
     handler: index.handler
     events:
       - httpApi:
           path: /
+          method: get
+
+  obtenerUsuarios:
+    handler: functions/usuario/obtenerUsuarios.handler
+    vpc:
+      securityGroupIds:
+        - sgr-0503f4baca53672c1 # el del RDS o uno que permita comunicación con él
+      subnetIds:
+        - subnet-0f60ec3e213ffda63
+        - subnet-0143de5b505ce3449
+        - subnet-0990f4dff828b9d3e
+    events:
+      - httpApi:
+          path: /usuario
           method: get
